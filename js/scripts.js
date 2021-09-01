@@ -21,13 +21,14 @@ let pokemonList = [{
     pokemonList.push(pokemon);
   }
 
-  function getAll() {
-    return pokemonList;
+     function getAll() {
+     return pokemonList;
   }
 
-  return {
-    add: add,
-    getAll: getAll
+     return {
+     add: add,
+     getAll: getAll
+         
   };
 })();
 
@@ -38,7 +39,7 @@ console.log(pokemonRepository.getAll() );
 
 pokemonRepository.getAll().forEach(function (pokemon){
          if (pokemon.height > 2) {
-    document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ')' + ' This one\'s quite large! </p>'  );
-    } else {
-    document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ')</p>');            
+         document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ')' + ' This one\'s quite large! </p>'  );
+       } else {
+        document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ')</p>');            
                     } });
