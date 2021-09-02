@@ -2,8 +2,7 @@
 
 let pokemonRepository = (function(){
 
-
-let pokemonList = [{
+    let pokemonList = [{
         name: 'Bulbasaur',
         type:['grass', 'poison'],
         height:2.4},
@@ -15,22 +14,22 @@ let pokemonList = [{
         {name: 'Squirtle', 
          type:' water',
          height:1.8}
-                  ];
+        ];
     
-     function add(pokemon) {
-    pokemonList.push(pokemon);
+   function add(pokemon) {
+       pokemonList.push(pokemon);
+   }
+
+   function getAll() {
+   return pokemonList;
   }
 
-     function getAll() {
-     return pokemonList;
-  }
-
-     return {
-     add: add,
-     getAll: getAll
+   return {
+       add: add,
+       getAll: getAll
          
   };
-})();
+  })();
 
 console.log(pokemonRepository.getAll() );
 
@@ -38,8 +37,8 @@ console.log(pokemonRepository.getAll() );
 
 
 pokemonRepository.getAll().forEach(function (pokemon){
-         if (pokemon.height > 2) {
-         document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ')' + ' This one\'s quite large! </p>'  );
-       } else {
+    if (pokemon.height > 2) {
+        document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ')' + ' This one\'s quite large! </p>'  );
+    } else {
         document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ')</p>');            
-                    } });
+    } });
