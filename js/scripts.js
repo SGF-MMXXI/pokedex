@@ -1,44 +1,58 @@
-//Heres the IIFE with my pokemonList array inside of it along with the add and get all functions.
+let pokemonRepository = (function () {
+  let pokemonList = [
+    {
+      name: "Venusaur",
+      type: ["grass", "poison"],
+      height: 6.7,
+    },
 
-let pokemonRepository = (function(){
+    { name: "Charizard", type: "fire", height: 5.7 },
 
-    let pokemonList = [{
-        name: 'Bulbasaur',
-        type:['grass', 'poison'],
-        height:2.4},
-    
-        {name: 'Charmander',
-        type: 'fire',
-        height:2},             
-    
-        {name: 'Squirtle', 
-         type:' water',
-         height:1.8}
-        ];
-    
-   function add(pokemon) {
-       pokemonList.push(pokemon);
-   }
+    { name: "Blastoise", type: " water", height: 5.3 },
 
-   function getAll() {
-   return pokemonList;
+    { name: "Butterfree", type: ["bug", "flying"], height: 3.7 },
+
+    { name: "Beedrill", type: ["bug", "poison"], height: 3.3 },
+  ];
+
+  function add(pokemon) {
+    pokemonList.push(pokemon);
   }
 
-   return {
-       add: add,
-       getAll: getAll
-         
+  function getAll() {
+    return pokemonList;
+  }
+
+  function removeLast() {
+    pokemonList.pop();
+  }
+
+  return {
+    add: add,
+    getAll: getAll,
+    removeLast: removeLast,
+    addListItem: addListItem,
   };
-  })();
+})();
 
-console.log(pokemonRepository.getAll() );
+//Functions for Pokedex Buttons
+function addListItem(pokemon) {
+  let list = document.querySelector(".pkList");
+  let listItem = document.createElement("li");
+  let button = document.createElement("button");
+  button.innerText = pokemon.name;
+  button.classList.add("pkButton");
+  listItem.appendChild(button);
+  list.appendChild(listItem);
+  button.addEventListener("click", function (event) {
+    showDetails(pokemon);
+  });
+}
 
-//A loop for the above array. This code displays the name and height of each pokemon listed along with a special message for the tallest
+function showDetails(pokemon) {
+  console.log(pokemon);
+}
 
-
-pokemonRepository.getAll().forEach(function (pokemon){
-    if (pokemon.height > 2) {
-        document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ')' + ' This one\'s quite large! </p>'  );
-    } else {
-        document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ')</p>');            
-    } });
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
+});
