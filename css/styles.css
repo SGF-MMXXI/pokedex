@@ -64,11 +64,11 @@ li {
     
 }
 
+
 .modal-content {
     color: yellow;
     position: relative;
     width: 100%;
-    left: 13%;
     background:red;
     text-transform: capitalize;
 }
